@@ -2,7 +2,5 @@
 
 __author__ = 'Vitalii Maslov'
 __email__ = 'me@pyvim.com'
-__version__ = '1.0.0'
+__version__ = '1.2.2'
 __license__ = 'MIT'
-
-from .vklancer import *

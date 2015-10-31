@@ -1,23 +1,46 @@
-VKLancer
-========
+## VKLancer ##
+*Simple usage [API vk.com](https://vk.com/dev).*  
 [![PyPI](http://img.shields.io/pypi/v/vklancer.svg?style=flat)](https://pypi.python.org/pypi/vklancer)
 
-*Simple usage [API vk.com](https://vk.com/dev).<br/>*
-
-Usage
------
-```python
-import vklancer
-
-api = vklancer.API(token='token', version='5.34')
-answer = api.users.get(user_ids=1)
-
-```
-
-Installation
-------------
+## Installation ##
 ```pip install vklancer```
 
-Requirements
-------------
-- [requests](https://github.com/kennethreitz/requests)
+## Usage ##
+### Simple usage ###
+```python
+from vklancer import api
+
+vk = api.API('your access token')
+response = vk.users.get(user_ids=1)
+
+print(response)
+
+{'response': [{'last_name': 'Дуров', 'id': 1, 'first_name': 'Павел'}]}
+```
+
+### With special version API ###
+```python
+from vklancer import api
+
+vk = api.API('your access token', version='4.0')
+response = vk.users.get(user_ids=1)
+
+print(response)
+
+{'response': [{'last_name': 'Дуров', 'id': 1, 'first_name': 'Павел'}]}
+```
+
+### Obtain access token ###
+```python
+from vklancer import api
+from vklancer import utils
+
+access_token = utils.oauth('your login', 'your password')
+
+vk = api.API(access_token, version='5.37')
+response = vk.users.get(user_ids=1)
+
+print(response)
+
+{'response': [{'last_name': 'Дуров', 'id': 1, 'first_name': 'Павел'}]}
+```

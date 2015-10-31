@@ -8,21 +8,19 @@ Usage
 
 .. code:: python
 
-    import vklancer
-    from vklancer.utils import authentication, oauth
+    from vklancer import api
 
-    token = oauth(authentication(login='YOUR-LOGIN', password='YOUR-PASSWORD'))
-    api = vklancer.API(token='token', version='5.34')
-    answer = api.users.get(user_ids=1)
+    vk = api.API('your access token')
+    response = vk.users.get(user_ids=1)
+
+    print(response)
+
+    {'response': [{'last_name': 'Дуров', 'id': 1, 'first_name': 'Павел'}]}
 
 Installation
 ------------
 
 ``pip install vklancer``
-
-Requirements
-------------
-`requests <https://github.com/kennethreitz/requests>`__
 
 Source
 ------

@@ -1,3 +1,10 @@
+# coding=utf-8
+
+__author__ = 'Vitalii Maslov'
+__version__ = '1.2.2'
+__email__ = 'me@pyvim.com'
+__license__ = 'MIT'
+
 import re
 
 import requests
@@ -9,7 +16,7 @@ def authentication(login, password):
 
     :param login: login on vk.com.
     :param password: password on vk.com.
-    :returns: `requests.Session` class with cookies or False.
+    :returns: `requests.Session` session with cookies.
     """
     session = requests.Session()
     response = session.get('https://m.vk.com')
@@ -19,15 +26,17 @@ def authentication(login, password):
     return session
 
 
-def oauth(session, app_id=4729418, scope=2097151):
+def oauth(login, password, app_id=4729418, scope=2097151):
     """
     OAuth on vk.com.
 
-    :param session: `requests.Session` class with cookies.
+    :param login: login on vk.com.
+    :param password: password on vk.com.
     :param app_id: vk.com application id (default: 4729418).
     :param scope: allowed actions (default: 2097151 (all)).
-    :returns: OAuth access token or None.
+    :returns: OAuth2 access token or None.
     """
+    session = authentication(login, password)
     data = {
         'response_type': 'token',
         'client_id': app_id,

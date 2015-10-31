@@ -1,0 +1,6 @@
+.git
+*.py[codw]
+__pycache__/
+build/
+dist/
+vklancer.egg-info
