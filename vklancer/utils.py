@@ -1,10 +1,5 @@
 # coding=utf-8
 
-__author__ = 'Vitalii Maslov'
-__version__ = '1.2.2'
-__email__ = 'me@pyvim.com'
-__license__ = 'MIT'
-
 import re
 
 import requests

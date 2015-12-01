@@ -1,10 +1,5 @@
 # coding=utf-8
 
-__author__ = 'Vitalii Maslov'
-__version__ = '1.2.2'
-__email__ = 'me@pyvim.com'
-__license__ = 'MIT'
-
 import requests
 
 
@@ -12,7 +7,7 @@ class API(object):
 
     """Wrapper for vk.com API."""
 
-    def __init__(self, token, version='5.37', **kwargs):
+    def __init__(self, token=None, version='5.37', **kwargs):
         """
         Initialize class.
 
@@ -34,10 +29,13 @@ class API(object):
         """
         url = 'https://api.vk.com/method/%s' % self._method
         data = {
-            'access_token': self._token,
             'v': self._version
         }
         data.update(kwargs)
+
+        if self._token is not None:
+            data['access_token'] = self._token
+
         return requests.post(url, data=data).json()
 
     def __getattr__(self, attr):

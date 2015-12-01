@@ -19,3 +19,10 @@ All notable changes to this project will be documented in this file.
 
 ### Fixed ###
 - authentication utilities;
+
+## [1.3.0] - 2015-12-01 ##
+### Added ###
+- coverage and CI;
+
+### Updated ###
+- parameter `token` is non-required;

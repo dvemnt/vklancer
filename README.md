@@ -1,5 +1,8 @@
 ## VKLancer ##
 *Simple usage [API vk.com](https://vk.com/dev).*  
+
+[![Build Status](https://travis-ci.org/pyvim/vklancer.svg)](https://travis-ci.org/pyvim/vklancer)
+[![Coverage Status](https://coveralls.io/repos/pyvim/vklancer/badge.svg?branch=master&service=github)](https://coveralls.io/github/pyvim/vklancer?branch=master)
 [![PyPI](http://img.shields.io/pypi/v/vklancer.svg?style=flat)](https://pypi.python.org/pypi/vklancer)
 
 ## Installation ##
@@ -10,7 +13,7 @@
 ```python
 from vklancer import api
 
-vk = api.API('your access token')
+vk = api.API()
 response = vk.users.get(user_ids=1)
 
 print(response)
@@ -22,7 +25,7 @@ print(response)
 ```python
 from vklancer import api
 
-vk = api.API('your access token', version='4.0')
+vk = api.API(token='your access token', version='4.0')
 response = vk.users.get(user_ids=1)
 
 print(response)
@@ -37,10 +40,28 @@ from vklancer import utils
 
 access_token = utils.oauth('your login', 'your password')
 
-vk = api.API(access_token, version='5.37')
+vk = api.API(token=access_token, version='5.37')
 response = vk.users.get(user_ids=1)
 
 print(response)
 
 {'response': [{'last_name': 'Дуров', 'id': 1, 'first_name': 'Павел'}]}
 ```
+
+## Documentation ##
+In development. See docstrings.
+
+## Tests ##
+```bash
+nosetests
+```
+or
+```bash
+python tests.py
+```
+
+## Changelog ##
+See [CHANGELOG.md](https://github.com/pyvim/vklancer/blob/master/CHANGELOG.md)
+
+## License ##
+See [LICENSE](https://github.com/pyvim/vklancer/blob/master/LICENSE)
