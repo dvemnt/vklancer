@@ -7,43 +7,36 @@ class API(object):
 
     """Wrapper for vk.com API."""
 
-    def __init__(self, token=None, version='5.37', **kwargs):
+    def __init__(self, token=None, version='5.42', **kwargs):
         """
-        Initialize class.
+        Override __init__.
 
-        :param token: OAuth2 access token.
-        :param version: API version.
-        :param method: method name.
+        :param token: `str` OAuth2 access token.
+        :param version: `str` API version.
         """
-        self._token = token
-        self._version = version
-        self._method = kwargs.get('method', '')
+        self.__token = token
+        self.__version = version
+        self.__method = kwargs.get('method', '')
 
-    def _request(self, **kwargs):
+    def __request(self, **kwargs):
         """
         Send request to API.
 
-        :param method: name of API method.
-        :param params: method parameters.
         :returns: answer in dictionary.
         """
-        url = 'https://api.vk.com/method/%s' % self._method
-        data = {
-            'v': self._version
-        }
-        data.update(kwargs)
+        url = 'https://api.vk.com/method/{}'.format(self.__method)
+        kwargs['v'] = self.__version
 
-        if self._token is not None:
-            data['access_token'] = self._token
+        if self.__token is not None:
+            kwargs['access_token'] = self.__token
 
-        return requests.post(url, data=data).json()
+        return requests.post(url, data=kwargs).json()
 
     def __getattr__(self, attr):
-        try:
-            return self.__dict__[attr]
-        except KeyError:
-            method = ('{}.{}'.format(self._method, attr)).lstrip('.')
-            return API(self._token, version=self._version, method=method)
+        """Override __getattr__."""
+        method = ('{}.{}'.format(self.__method, attr)).lstrip('.')
+        return API(self.__token, version=self.__version, method=method)
 
     def __call__(self, **kwargs):
-        return self._request(**kwargs)
+        """Override __call__."""
+        return self.__request(**kwargs)

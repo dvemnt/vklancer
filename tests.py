@@ -14,14 +14,14 @@ class APITests(unittest.TestCase):
         self.api = api.API(token=self.token, version=self.version)
 
     def test_initialize(self):
-        self.assertEqual(self.api._token, self.token)
-        self.assertEqual(self.api._version, self.version)
+        self.assertEqual(self.api._API__token, self.token)
+        self.assertEqual(self.api._API__version, self.version)
 
     def test_single_chain(self):
-        self.assertEqual(self.api.execute._method, 'execute')
+        self.assertEqual(self.api.execute._API__method, 'execute')
 
     def test_multiple_chain(self):
-        self.assertEqual(self.api.users.get._method, 'users.get')
+        self.assertEqual(self.api.users.get._API__method, 'users.get')
 
     def test_send_request(self):
         self.assertTrue(isinstance(self.api.users.get(user_ids=1), dict))

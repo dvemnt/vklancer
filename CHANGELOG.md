@@ -20,9 +20,18 @@ All notable changes to this project will be documented in this file.
 ### Fixed ###
 - authentication utilities;
 
+
 ## [1.3.0] - 2015-12-01 ##
 ### Added ###
 - coverage and CI;
 
 ### Updated ###
 - parameter `token` is non-required;
+
+
+## [1.3.1] - 2015-12-29 ##
+### Updated ###
+- pseudo-private attributes;
+- getting undefined attributes;
+- default VK API version;
+- docstrings;
