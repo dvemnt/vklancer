@@ -1,5 +1,5 @@
 ## VKLancer ##
-*Simple usage [API vk.com](https://vk.com/dev).*  
+*Simple usage [API vk.com](https://vk.com/dev).*
 
 [![Build Status](https://travis-ci.org/pyvim/vklancer.svg)](https://travis-ci.org/pyvim/vklancer)
 [![Coverage Status](https://coveralls.io/repos/pyvim/vklancer/badge.svg?branch=master&service=github)](https://coveralls.io/github/pyvim/vklancer?branch=master)
@@ -9,6 +9,8 @@
 ```pip install vklancer```
 
 ## Usage ##
+List of methods: [https://vk.com/dev/methods](https://vk.com/dev/methods)
+
 ### Simple usage ###
 ```python
 from vklancer import api
