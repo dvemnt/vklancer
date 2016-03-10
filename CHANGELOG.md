@@ -35,3 +35,12 @@ All notable changes to this project will be documented in this file.
 - getting undefined attributes;
 - default VK API version;
 - docstrings;
+
+
+## [1.4.0] - 2016-03-10 ##
+### Added ###
+- public method `get_url`;
+
+### Updated ###
+- `request` is a public method;
+- not overrided passed parameters `v` and `access_token`;

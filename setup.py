@@ -6,7 +6,7 @@ try:
 except ImportError:
     from distutils.core import setup
 
-VERSION = '1.3.1'
+VERSION = '1.4.0'
 
 packages = [
     'vklancer'
@@ -38,5 +38,7 @@ setup(
         'Environment :: Web Environment',
         'Intended Audience :: Developers',
         'Programming Language :: Python',
+        'Programming Language :: Python :: 2',
+        'Programming Language :: Python :: 3',
     ],
 )

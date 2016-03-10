@@ -26,5 +26,22 @@ class APITests(unittest.TestCase):
     def test_send_request(self):
         self.assertTrue(isinstance(self.api.users.get(user_ids=1), dict))
 
+    def test_send_request__with_pass_method(self):
+        self.assertTrue(
+            isinstance(self.api.request('users.get', user_ids=1), dict)
+        )
+
+    def test_get_url(self):
+        self.assertEqual(
+            self.api.users.get.get_url(user_ids=1, v='0'),
+            'https://api.vk.com/method/users.get?access_token=token&user_ids=1&v=0'
+        )
+
+    def test_get_url__with_pass_method(self):
+        self.assertEqual(
+            self.api.get_url('users.get', user_ids=1, v='0'),
+            'https://api.vk.com/method/users.get?access_token=token&user_ids=1&v=0'
+        )
+
 if __name__ == '__main__':
     unittest.main()

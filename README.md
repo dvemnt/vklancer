@@ -20,7 +20,31 @@ response = vk.users.get(user_ids=1)
 
 print(response)
 
-{'response': [{'last_name': 'Дуров', 'id': 1, 'first_name': 'Павел'}]}
+>>> {'response': [{'last_name': 'Дуров', 'id': 1, 'first_name': 'Павел'}]}
+```
+
+### With request method ###
+```python
+from vklancer import api
+
+vk = api.API()
+response = vk.request('users.get', user_ids=1)
+
+print(response)
+
+>>> {'response': [{'last_name': 'Дуров', 'id': 1, 'first_name': 'Павел'}]}
+```
+
+### Get method call URL ###
+```python
+from vklancer import api
+
+vk = api.API()
+url = vk.get_url('users.get', user_ids=1)
+
+print(url)
+
+>>> https://api.vk.com/method/users.get?user_ids=1&v=5.49
 ```
 
 ### With special version API ###
@@ -32,7 +56,7 @@ response = vk.users.get(user_ids=1)
 
 print(response)
 
-{'response': [{'last_name': 'Дуров', 'id': 1, 'first_name': 'Павел'}]}
+>>> {'response': [{'last_name': 'Дуров', 'id': 1, 'first_name': 'Павел'}]}
 ```
 
 ### Obtain access token ###
@@ -47,7 +71,7 @@ response = vk.users.get(user_ids=1)
 
 print(response)
 
-{'response': [{'last_name': 'Дуров', 'id': 1, 'first_name': 'Павел'}]}
+>>> {'response': [{'last_name': 'Дуров', 'id': 1, 'first_name': 'Павел'}]}
 ```
 
 ## Documentation ##

@@ -1,5 +1,1 @@
-argparse
-coverage
-coveralls
-nose
 requests
