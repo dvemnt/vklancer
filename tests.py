@@ -32,15 +32,15 @@ class APITests(unittest.TestCase):
         )
 
     def test_get_url(self):
-        self.assertEqual(
+        self.assertIn(
+            'https://api.vk.com/method/users.get?',
             self.api.users.get.get_url(user_ids=1, v='0'),
-            'https://api.vk.com/method/users.get?access_token=token&user_ids=1&v=0'
         )
 
     def test_get_url__with_pass_method(self):
-        self.assertEqual(
+        self.assertIn(
+            'https://api.vk.com/method/users.get?',
             self.api.get_url('users.get', user_ids=1, v='0'),
-            'https://api.vk.com/method/users.get?access_token=token&user_ids=1&v=0'
         )
 
 if __name__ == '__main__':
