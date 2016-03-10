@@ -1,2 +1,7 @@
 [report]
 omit = *vklancer/utils.py
+exclude_lines =
+    try:
+        from urllib import urlencode
+    except ImportError:
+        from urllib.parse import urlencode

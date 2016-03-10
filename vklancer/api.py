@@ -1,7 +1,11 @@
 # coding=utf-8
 
 import requests
-import urllib
+
+try:
+    from urllib import urlencode
+except ImportError:
+    from urllib.parse import urlencode
 
 
 class API(object):
@@ -31,7 +35,7 @@ class API(object):
             kwargs.setdefault('access_token', self.__token)
 
         return 'https://api.vk.com/method/{}?{}'.format(
-            method or self.__method, urllib.urlencode(kwargs)
+            method or self.__method, urlencode(kwargs)
         )
 
     def request(self, method, **kwargs):
