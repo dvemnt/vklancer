@@ -74,16 +74,9 @@ print(response)
 >>> {'response': [{'last_name': 'Дуров', 'id': 1, 'first_name': 'Павел'}]}
 ```
 
-## Documentation ##
-In development. See docstrings.
-
 ## Tests ##
 ```bash
-nosetests
-```
-or
-```bash
-python tests.py
+tox
 ```
 
 ## Changelog ##

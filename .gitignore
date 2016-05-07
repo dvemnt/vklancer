@@ -6,3 +6,4 @@ dist/
 vklancer.egg-info/
 run_tests.sh
 .coverage
+.tox/
